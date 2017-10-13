@@ -13,11 +13,10 @@ demo.state2.prototype = {
         // c is the identifier of the canvas in HTML
         game.add.sprite(0, 0, 'ocean');
 
-        var emitter = game.add.emitter(game.world.centerX, 0, 400);
+        var emitter = game.add.emitter(game.world.centerX, 0, 500);
 
         emitter.width = game.world.width;
         // emitter.angle = 30; // uncomment to set an angle for the rain.
-
         emitter.makeParticles('rain');
 
         emitter.minParticleScale = 0.5;
