@@ -1,5 +1,5 @@
 // Game State
-var cursors, words; 
+var cursors, sentence; 
 
 demo.state1 = function(){};
 demo.state1.prototype = {
@@ -23,6 +23,20 @@ demo.state1.prototype = {
         game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
         
         game.add.sprite(0, 0, 'ocean');
+        
+        sentence = "taco burrito churro pasta antipasta";
+
+        // Iterate through the word list
+        var currentArray = [];
+        console.log(sentence);
+
+        for (i = 0; i < sentence.length; i++){
+
+            currentArray.push(sentence[i]);
+
+        }
+
+        console.log(currentArray);
         
         // Controls
         cursors = game.input.keyboard.createCursorKeys();
@@ -63,30 +77,36 @@ demo.state1.prototype = {
 //}
 
 
-words = ['TACO', 'BURRITO', 'CHURRO', 'PASTA', 'ANTIPASTA'];
-console.log(words);
 
 
-// Convert the words to lowercase
-words = words.map(v => v.toLowerCase());
-console.log(words);
-console.log(words[0], words[3]);
 
-function readTextFile(file)
-{
-    var rawFile = new XMLHttpRequest();
-    rawFile.open("GET", file, false);
-    rawFile.onreadystatechange = function ()
-    {
-        if(rawFile.readyState === 4)
-        {
-            if(rawFile.status === 200 || rawFile.status == 0)
-            {
-                var allText = rawFile.responseText;
-                alert(allText);
-            }
-        }
-    }
-    rawFile.send(null);
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
