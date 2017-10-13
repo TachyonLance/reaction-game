@@ -11,7 +11,10 @@ demo.state0.prototype = {
     },
     
     create:function(){
-    
+        game.physics.startSystem(Phaser.Physics.ARCADE);
+        game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+        
+        //this.game.canvas.id = 'blah';
         game.add.sprite(0, 0, 'ocean');
         
         // c is the identifier of the canvas in HTML
