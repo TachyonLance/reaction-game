@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 demo.state2 = function(){};
 demo.state2.prototype = {
@@ -33,3 +34,6 @@ demo.state2.prototype = {
     update: function(){
     }
 }
+=======
+// Settings
+>>>>>>> origin/master
