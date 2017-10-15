@@ -64,17 +64,9 @@ demo.state1.prototype = {
         sentence = "what color is the word pineapple";
         
         var currentWordArray = sentence.split(" ");
-        var currentSpriteArray = [];
         var sentenceWidth = 0
         
-        // Determine the length of the sentence with sprites and spaces
-//        for (k = 0; k < sentence.length; k++){
-//            
-//            
-//            sentenceWidth += letterSprite.width;
-//            
-//        }
-        
+        // Create the letter sprites, randomize gravity, and add spacing
         spacingIndex = 0;
         for (i = 0; i < currentWordArray.length; i++){
             currentWord = currentWordArray[i];
@@ -90,11 +82,10 @@ demo.state1.prototype = {
                     var letterSprite = game.add.sprite(spacingIndex, 10, currentWord[j]);
                     letters.add(letterSprite);
                     letterSprite.scale.set(0.25);                    
-                    letterSprite.body.gravity.y = 2 + Math.random() * 40;
-                    currentSpriteArray.push(letterSprite);
+                    letterSprite.body.gravity.y = 2 + Math.random() * 25;
                     sentenceWidth += letterSprite.width;
                 }
-                
+        
                 spacingIndex += letterSprite.width + 5;
             }    
         }
