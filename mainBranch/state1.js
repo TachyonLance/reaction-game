@@ -43,6 +43,7 @@ demo.state1.prototype = {
         
         // Initialize Physics
         game.physics.startSystem(Phaser.Physics.ARCADE);
+        game.physics.arcade.gravity.y = 100;
         
         //Adjust camera settings
         game.world.setBounds(0, 0, 2400, 2400);
@@ -60,7 +61,7 @@ demo.state1.prototype = {
         letters.setAll('outOfBoundsKill', true);
                 
         // Input the sentence
-        sentence = "what color is pineapple?";
+        sentence = "what color is the word pineapple";
         
         var currentWordArray = sentence.split(" ");
         var currentSpriteArray = [];
@@ -87,13 +88,14 @@ demo.state1.prototype = {
 
                 else{
                     var letterSprite = game.add.sprite(spacingIndex, 10, currentWord[j]);
-                    letterSprite.scale.set(0.25);
                     letters.add(letterSprite);
+                    letterSprite.scale.set(0.25);                    
+                    letterSprite.body.gravity.y = 2 + Math.random() * 40;
                     currentSpriteArray.push(letterSprite);
                     sentenceWidth += letterSprite.width;
-                    
+                }
+                
                 spacingIndex += letterSprite.width + 5;
-                }                
             }    
         }
         
