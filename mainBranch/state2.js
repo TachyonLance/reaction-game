@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 demo.state2 = function(){};
 demo.state2.prototype = {
     preload: function(){
@@ -34,6 +32,3 @@ demo.state2.prototype = {
     update: function(){
     }
 }
-=======
-// Settings
->>>>>>> origin/master

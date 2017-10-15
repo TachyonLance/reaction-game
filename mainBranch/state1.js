@@ -50,42 +50,42 @@ demo.state1.prototype = {
         
         game.add.sprite(0, 0, 'ocean');
         
+        // Create the letters group to control physics
         letters = game.add.group();
         letters.enableBody = true;
         letters.physicsBodyType = Phaser.Physics.ARCADE;
         
-        var text = "";
-        var newText = text + 'a';
-        console.log(newText);
-        
-        var letterSprite = game.add.sprite(0, 0, newText);
-        
+        // Destroy the sprite when it reaches the ground
         letters.setAll('checkWorldBounds', true);
         letters.setAll('outOfBoundsKill', true);
                 
-        //onInputDown.add(destroySprite, this);
-        
-        letterSprite.destroy();
-        
-        // Destroy the sprite when it reaches the ground
-        // a.destroy();
-        
-        sentence = "taco burrito churro pasta antipasta";
-
-        // Iterate through the word list
+        // Iterate through the sentence
+        sentence = "what color is pineapple?";
         var currentArray = [];
-        console.log(sentence);
-
         for (i = 0; i < sentence.length; i++){
 
-            currentArray.push(sentence[i]);
-
+            if (sentence[i] == "?"){
+                console.log("?");
+            }
+            
+            else if(sentence[i] == " "){
+                console.log(" ");
+            }
+            
+            else{
+                currentArray.push(sentence[i]);
+                var letterSprite = game.add.sprite(0 + 10 *i,0, sentence[i]);
+                console.log(letterSprite.width);
+                letterSprite.scale.set(0.5);
+                letters.add(letterSprite);
+            }
         }
-
-        console.log(currentArray);
+        
+        
         
         // Controls
         cursors = game.input.keyboard.createCursorKeys();
+    
     },
     
     update: function(){
