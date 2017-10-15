@@ -90,6 +90,7 @@ demo.state1.prototype = {
             }    
         }
         
+        console.log(letters);
         
         // Controls
         cursors = game.input.keyboard.createCursorKeys();
