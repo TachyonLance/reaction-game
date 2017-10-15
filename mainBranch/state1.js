@@ -7,6 +7,32 @@ demo.state1.prototype = {
     preload: function(){
         
         game.load.image('ocean', '../assets/ocean.png');
+        game.load.image('a', '../assets/letter/a.png');
+        game.load.image('b', '../assets/letter/b.png');
+        game.load.image('c', '../assets/letter/c.png');
+        game.load.image('d', '../assets/letter/d.png');
+        game.load.image('e', '../assets/letter/e.png');
+        game.load.image('f', '../assets/letter/f.png');
+        game.load.image('g', '../assets/letter/g.png');
+        game.load.image('h', '../assets/letter/h.png');
+        game.load.image('i', '../assets/letter/i.png');
+        game.load.image('j', '../assets/letter/j.png');
+        game.load.image('k', '../assets/letter/k.png');
+        game.load.image('l', '../assets/letter/l.png');
+        game.load.image('m', '../assets/letter/m.png');
+        game.load.image('n', '../assets/letter/n.png');
+        game.load.image('o', '../assets/letter/o.png');
+        game.load.image('p', '../assets/letter/p.png');
+        game.load.image('q', '../assets/letter/q.png');
+        game.load.image('r', '../assets/letter/r.png');
+        game.load.image('s', '../assets/letter/s.png');
+        game.load.image('t', '../assets/letter/t.png');
+        game.load.image('u', '../assets/letter/u.png');
+        game.load.image('v', '../assets/letter/v.png');
+        game.load.image('w', '../assets/letter/w.png');
+        game.load.image('x', '../assets/letter/x.png');
+        game.load.image('y', '../assets/letter/y.png');
+        game.load.image('z', '../assets/letter/z.png');
 
     },
     
@@ -23,6 +49,26 @@ demo.state1.prototype = {
         game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
         
         game.add.sprite(0, 0, 'ocean');
+        
+        letters = game.add.group();
+        letters.enableBody = true;
+        letters.physicsBodyType = Phaser.Physics.ARCADE;
+        
+        var text = "";
+        var newText = text + 'a';
+        console.log(newText);
+        
+        var letterSprite = game.add.sprite(0, 0, newText);
+        
+        letters.setAll('checkWorldBounds', true);
+        letters.setAll('outOfBoundsKill', true);
+                
+        //onInputDown.add(destroySprite, this);
+        
+        letterSprite.destroy();
+        
+        // Destroy the sprite when it reaches the ground
+        // a.destroy();
         
         sentence = "taco burrito churro pasta antipasta";
 
