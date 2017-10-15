@@ -59,28 +59,43 @@ demo.state1.prototype = {
         letters.setAll('checkWorldBounds', true);
         letters.setAll('outOfBoundsKill', true);
                 
-        // Iterate through the sentence
+        // Input the sentence
         sentence = "what color is pineapple?";
-        var currentArray = [];
-        for (i = 0; i < sentence.length; i++){
-
-            if (sentence[i] == "?"){
-                console.log("?");
-            }
-            
-            else if(sentence[i] == " "){
-                console.log(" ");
-            }
-            
-            else{
-                currentArray.push(sentence[i]);
-                var letterSprite = game.add.sprite(0 + 10 *i,0, sentence[i]);
-                console.log(letterSprite.width);
-                letterSprite.scale.set(0.5);
-                letters.add(letterSprite);
-            }
-        }
         
+        var currentWordArray = sentence.split(" ");
+        var currentSpriteArray = [];
+        var sentenceWidth = 0
+        
+        // Determine the length of the sentence with sprites and spaces
+//        for (k = 0; k < sentence.length; k++){
+//            
+//            
+//            sentenceWidth += letterSprite.width;
+//            
+//        }
+        
+        spacingIndex = 0;
+        for (i = 0; i < currentWordArray.length; i++){
+            currentWord = currentWordArray[i];
+            spacingIndex += 75;
+            
+            for (j = 0; j < currentWordArray[i].length; j++){
+                
+                if (currentWord[j] == "?"){}
+            
+                else if(currentWord[j] == " "){}
+
+                else{
+                    var letterSprite = game.add.sprite(spacingIndex, 10, currentWord[j]);
+                    letterSprite.scale.set(0.25);
+                    letters.add(letterSprite);
+                    currentSpriteArray.push(letterSprite);
+                    sentenceWidth += letterSprite.width;
+                    
+                spacingIndex += letterSprite.width + 5;
+                }                
+            }    
+        }
         
         
         // Controls
